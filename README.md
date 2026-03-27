@@ -65,6 +65,38 @@ python query_logs.py --run cnn    # any run matching "cnn"
 python query_logs.py --all        # print every epoch
 ```
 
+### 4. Ask AI about your stats
+
+`query_logs.py` is designed so an AI assistant (like Claude Code) can read your training logs and explain them in plain language.
+
+**In Claude Code (VS Code extension):**
+Just type in chat:
+```
+check stats
+```
+or ask naturally:
+```
+what's my best val loss?
+is my model overfitting?
+compare all my runs
+how did the CNN model do?
+```
+
+Claude will run `query_logs.py` automatically and explain the results — what the numbers mean, whether training converged, if the learning rate decayed too fast, etc.
+
+**To set it up for a friend using Claude Code:**
+1. Clone this repo into their project folder
+2. Open the folder in VS Code with the Claude Code extension
+3. They can ask Claude anything about their training runs in plain English
+
+**Manually running the query for AI:**
+If you want to paste results into any AI chatbot (ChatGPT, Claude.ai, etc.):
+```bash
+python query_logs.py --all
+```
+Copy the output and paste it with your question, e.g.:
+> *"Here are my training logs: [paste] — is this overfitting?"*
+
 ---
 
 ## Migrating from wandb
